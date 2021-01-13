@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import './styles/NewBoxForm.css';
 
 class NewBoxForm extends Component {
     state = {
@@ -22,13 +23,13 @@ class NewBoxForm extends Component {
 
     render() {
         return(
-            <div>
-                <h3>{this.props.typeForm}</h3>
+            <div className="NewBoxForm">
+                {this.props.typeForm === "New ToDo" && <h3>{this.props.typeForm}</h3>}
                 <form onSubmit={this.handleSubmit} onChange={this.handleChange} name={this.props.typeForm}>
                     <label>
                         <input type="text" placeholder={this.props.typeForm}/>
                     </label>
-                    <input type="submit" value={this.props.value}/>
+                    <button type="submit" >{this.props.value}</button>
                 </form>
             </div>
         );

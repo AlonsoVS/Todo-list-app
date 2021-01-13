@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from 'uuid';
 class BoxList extends Component {
     state = {
         todo: [],
-        edit: false
     };
 
     setNewTodo = newEntry => {
@@ -27,7 +26,6 @@ class BoxList extends Component {
         });
         this.setState({
             todo:updateTodo,
-            edit: false
         });
     };
 
@@ -38,14 +36,13 @@ class BoxList extends Component {
     };
 
     render() {
-        
         return(
-            <div>
+            <div className="BoxList">
                 <h1>ToDo List</h1>
                 <ul>
                     {this.state.todo.map((todo)=>{
                         return <li id={todo.id}>
-                                    <Box edit={this.state.edit} id={todo.id} onActiveEdit={this.activeEdit} onEditSubmit={this.editTodo} onDeleteTodo={this.deleteTodo} todo={todo.description}/>
+                                    <Box id={todo.id} onActiveEdit={this.activeEdit} onEditSubmit={this.editTodo} onDeleteTodo={this.deleteTodo} todo={todo.description}/>
                                 </li>
                         })
                     }
